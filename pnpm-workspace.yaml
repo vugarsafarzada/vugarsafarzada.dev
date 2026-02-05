@@ -5,8 +5,10 @@ packages:
 ignoredBuiltDependencies:
   - '@nestjs/core'
   - '@parcel/watcher'
+  - '@prisma/engines'
   - esbuild
   - less
   - nx
+  - prisma
   - sharp
   - unrs-resolver
