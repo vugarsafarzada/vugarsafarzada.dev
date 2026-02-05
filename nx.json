@@ -25,4 +25,19 @@
       }
     }
   ]
+  ,
+  "targetDefaults": {
+    "docker-run:dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.dev.yml up --build -d"
+      }
+    },
+    "docker-run:build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "docker compose -f docker-compose.build.yml up --build -d"
+      }
+    }
+  }
 }
