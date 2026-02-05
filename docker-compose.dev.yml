@@ -1,0 +1,70 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: portfolio_mysql_dev
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: dev
+    working_dir: /app/backend
+    env_file:
+      - ./backend/.env
+    environment:
+      ACTIVE_PORT: "${BACKEND_PORT}"
+      PORT: "${BACKEND_PORT}"
+      MYSQL_HOST: "${MYSQL_HOST}"
+      MYSQL_PORT: "${MYSQL_PORT}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      DATABASE_URL: "${DATABASE_URL}"
+    command: ["sh", "-c", "pnpm exec prisma generate && pnpm run start:dev"]
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/backend/node_modules
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      target: dev
+    working_dir: /app/frontend
+    env_file:
+      - ./frontend/.env
+    environment:
+      PORT: "${FRONTEND_PORT}"
+      NEXT_PUBLIC_ACTIVE_PORT: "${FRONTEND_PORT}"
+    ports:
+      - "3333:3333"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/frontend/node_modules
+    depends_on:
+      - backend
+    command: ["sh", "-c", "pnpm exec next dev -H 0.0.0.0 -p 3333"]
+
+volumes:
+  mysql_data:
