@@ -1,2 +1,1 @@
 # vugarsafarzada.dev
-# vugarsafarzada.dev
