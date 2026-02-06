@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "Создайте своё портфолио",
+    "subtitle": "Next.js + Nest.js + Nx + Docker",
+    "description": "Это стартовая точка для вашего личного сайта.",
+    "counter": "Значение счётчика",
+    "increment": "Увеличить",
+    "decrement": "Уменьшить"
+  },
+  "nav": {
+    "home": "Главная",
+    "about": "Обо мне",
+    "projects": "Проекты",
+    "contact": "Контакты"
+  },
+  "language": {
+    "label": "Язык"
+  }
+}

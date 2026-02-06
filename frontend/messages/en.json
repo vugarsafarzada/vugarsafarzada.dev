@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "Build your portfolio",
+    "subtitle": "Next.js + Nest.js + Nx + Docker",
+    "description": "This is the starting point for your personal site.",
+    "counter": "Counter value",
+    "increment": "Increment",
+    "decrement": "Decrement"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "language": {
+    "label": "Language"
+  }
+}

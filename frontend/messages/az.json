@@ -1,0 +1,19 @@
+{
+  "home": {
+    "title": "Portfelini qur",
+    "subtitle": "Next.js + Nest.js + Nx + Docker",
+    "description": "Bu, şəxsi saytınız üçün başlanğıc nöqtəsidir.",
+    "counter": "Sayğac dəyəri",
+    "increment": "Artır",
+    "decrement": "Azalt"
+  },
+  "nav": {
+    "home": "Ana səhifə",
+    "about": "Haqqımda",
+    "projects": "Layihələr",
+    "contact": "Əlaqə"
+  },
+  "language": {
+    "label": "Dil"
+  }
+}
