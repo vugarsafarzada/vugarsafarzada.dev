@@ -24,10 +24,10 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <label className="flex items-center gap-2 text-sm font-medium text-zinc-600">
+    <label className="flex items-center gap-2 text-sm font-medium text-zinc-600 dark:text-zinc-400">
       <span className="sr-only">{t("language.label")}</span>
       <select
-        className="rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm"
+        className="rounded-full border border-zinc-200 bg-white px-3 py-2 text-sm text-zinc-900 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 dark:text-zinc-100"
         value={locale}
         onChange={handleChange}
       >

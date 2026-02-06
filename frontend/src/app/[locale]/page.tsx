@@ -8,11 +8,11 @@ export default function HomePage() {
   return (
     <SiteLayout title={t("home.title")} subtitle={t("home.subtitle")}>
       <section className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
-        <div className="flex flex-col gap-4 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <p className="text-sm font-medium text-zinc-500">
+        <div className="flex flex-col gap-4 rounded-3xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+          <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">
             {t("home.description")}
           </p>
-          <div className="grid gap-3 text-sm text-zinc-600">
+          <div className="grid gap-3 text-sm text-zinc-600 dark:text-zinc-400">
             <div>Next.js App Router</div>
             <div>Nx workspace with pnpm</div>
             <div>Docker-first workflow</div>

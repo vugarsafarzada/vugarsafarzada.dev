@@ -5,6 +5,7 @@ import {
   NextIntlClientProvider,
   type AbstractIntlMessages,
 } from "next-intl";
+import { ThemeProvider } from "next-themes";
 import StoreProvider from "@/store/provider";
 
 type AppProvidersProps = {
@@ -21,14 +22,21 @@ export default function AppProviders({
   timeZone,
 }: AppProvidersProps) {
   return (
-    <StoreProvider>
-      <NextIntlClientProvider
-        locale={locale}
-        messages={messages}
-        timeZone={timeZone}
-      >
-        {children}
-      </NextIntlClientProvider>
-    </StoreProvider>
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <StoreProvider>
+        <NextIntlClientProvider
+          locale={locale}
+          messages={messages}
+          timeZone={timeZone}
+        >
+          {children}
+        </NextIntlClientProvider>
+      </StoreProvider>
+    </ThemeProvider>
   );
 }
